@@ -1,4 +1,4 @@
-use solana_program::msg;
+// use solana_program::msg;
 
 use crate::{errors::ErrorCode, math::*, state::*, util::SwapTickSequence};
 use anchor_lang::prelude::*;
@@ -14,12 +14,12 @@ pub struct PostSwapUpdate {
 
 pub fn swap(
     whirlpool: &Whirlpool,
-    swap_tick_sequence: &mut SwapTickSequence,
+    swap_tick_sequence: &SwapTickSequence,
     amount: u64,
     sqrt_price_limit: u128,
     amount_specified_is_input: bool,
     a_to_b: bool,
-    timestamp: u64,
+    _timestamp: u64,
 ) -> Result<PostSwapUpdate> {
     if sqrt_price_limit < MIN_SQRT_PRICE_X64 || sqrt_price_limit > MAX_SQRT_PRICE_X64 {
         return Err(ErrorCode::SqrtPriceOutOfBounds.into());
