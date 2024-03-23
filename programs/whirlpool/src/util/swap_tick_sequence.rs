@@ -1,17 +1,16 @@
 use crate::errors::ErrorCode;
 use crate::state::*;
 use anchor_lang::prelude::*;
-use std::sync::Arc;
 
 pub struct SwapTickSequence {
-    arrays: Vec<Arc<TickArray>>,
+    arrays: Vec<TickArray>,
 }
 
 impl SwapTickSequence {
     pub fn new(
-        ta0: Arc<TickArray>,
-        ta1: Option<Arc<TickArray>>,
-        ta2: Option<Arc<TickArray>>,
+        ta0: TickArray,
+        ta1: Option<TickArray>,
+        ta2: Option<TickArray>,
     ) -> Self {
         let mut vec = Vec::with_capacity(3);
         vec.push(ta0);
