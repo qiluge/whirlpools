@@ -3,7 +3,7 @@ use crate::state::*;
 use anchor_lang::prelude::*;
 
 pub struct SwapTickSequence {
-    arrays: Vec<TickArray>,
+    pub arrays: Vec<TickArray>,
 }
 
 impl SwapTickSequence {
